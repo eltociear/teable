@@ -1,4 +1,5 @@
 export { default as A } from './components/A';
+export { default as AlertTriangle } from './components/AlertTriangle';
 export { default as ArrowUpDown } from './components/ArrowUpDown';
 export { default as ArrowUpRight } from './components/ArrowUpRight';
 export { default as Bell } from './components/Bell';
@@ -40,6 +41,7 @@ export { default as Maximize2 } from './components/Maximize2';
 export { default as Menu } from './components/Menu';
 export { default as MessageSquare } from './components/MessageSquare';
 export { default as MoreHorizontal } from './components/MoreHorizontal';
+export { default as Network } from './components/Network';
 export { default as PackageCheck } from './components/PackageCheck';
 export { default as PaintBucket } from './components/PaintBucket';
 export { default as Plus } from './components/Plus';
