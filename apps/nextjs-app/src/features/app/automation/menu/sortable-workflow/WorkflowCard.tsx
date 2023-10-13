@@ -1,3 +1,6 @@
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { DeploymentStatus } from '@teable-group/core';
 import { DraggableHandle, MoreHorizontal } from '@teable-group/icons';
 import {
   DropdownMenu,
@@ -11,38 +14,60 @@ import {
 } from '@teable-group/ui-lib';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useMemo, useState } from 'react';
 
-export interface ICardProps {
+export interface IWorkflowCardProps {
   className?: string;
-  description?: string;
-  title?: string;
-  deploymentStatus: 'OFF' | 'ON';
-  actionType?: string;
+  description?: string | null;
+  name?: string;
+  deploymentStatus: DeploymentStatus;
   id: string;
 }
 
-const Card = (props: ICardProps) => {
+const WorkflowCard = (props: IWorkflowCardProps) => {
   const {
     className,
-    title = 'title',
-    description = 'description',
-    deploymentStatus = 'OFF',
+    name = 'title',
+    description = 'no description',
+    deploymentStatus = 'Deployed',
     id,
   } = props;
+
+  const sortProps = useSortable({
+    id: id,
+  });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = sortProps;
+  const mergedTransform = transform ? { ...transform, scaleX: 1, scaleY: 1 } : null;
+  const styles = {
+    transform: CSS.Transform.toString(mergedTransform),
+    transition,
+  };
+
   const [isHover, setHover] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const router = useRouter();
+  const {
+    query: { baseId, automationId },
+  } = router;
+  const isActive = useMemo(() => id === automationId, [id, automationId]);
 
   return (
     <Link
       href={{
-        pathname: '/space/automation/[automationId]',
-        query: { automationId: id },
+        pathname: '/base/[baseId]/automation/[automationId]',
+        query: { baseId: baseId, automationId: id },
       }}
       shallow={true}
     >
       <section
-        className={classNames('flex items-center p-2 rounded cursor-pointer', className)}
+        className={classNames(
+          'flex items-center p-2 rounded cursor-pointer hover:bg-secondary m-1 box-border',
+          className,
+          isActive ? 'bg-sky-200' : null
+        )}
+        style={styles}
+        ref={setNodeRef}
         onMouseEnter={() => {
           setHover(true);
         }}
@@ -50,21 +75,25 @@ const Card = (props: ICardProps) => {
           setHover(false);
         }}
       >
-        {/* <div className="w-12 h-12 shrink-0"></div> */}
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div className="flex flex-1 justify-between items-center">
-          <div className="flex flex-col w-max text-sm pl-2">
-            <span>{title}</span>
-            <span>{description}</span>
+          <div className="flex flex-col w-max text-sm pl-2 truncate flex-1">
+            <span className="truncate">{name}</span>
+            <span>{description || 'no description'}</span>
           </div>
           <div className="flex items-center">
-            {!isHover && !showDropdown ? (
+            {!isHover && !showDropdown && !isDragging ? (
               <Badge
-                variant={deploymentStatus === 'OFF' ? 'destructive' : 'secondary'}
-                className={classNames('p-1', deploymentStatus === 'ON' ? 'bg-green-700' : '')}
+                variant={
+                  deploymentStatus === DeploymentStatus.UnDeployed ? 'destructive' : 'secondary'
+                }
+                className={classNames(
+                  'p-1',
+                  deploymentStatus === DeploymentStatus.Deployed ? 'bg-green-700 text-slate-50' : ''
+                )}
               >
                 {deploymentStatus}
               </Badge>
@@ -96,7 +125,9 @@ const Card = (props: ICardProps) => {
                     <DropdownMenuItem>Delete</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <DraggableHandle className="w-4 h-4 cursor-grab" />
+                <div {...attributes} {...listeners}>
+                  <DraggableHandle className="w-4 h-4 cursor-grab" />
+                </div>
               </>
             )}
           </div>
@@ -106,4 +137,4 @@ const Card = (props: ICardProps) => {
   );
 };
 
-export { Card };
+export { WorkflowCard };

@@ -30,16 +30,16 @@ const configGroups = [
     label: 'Update Record',
     icon: <Plus></Plus>,
   },
-  {
-    value: 'findRecord',
-    label: 'ReFind records',
-    icon: <Plus></Plus>,
-  },
-  {
-    value: 'runScript',
-    label: 'Run script',
-    icon: <Plus></Plus>,
-  },
+  // {
+  //   value: 'findRecord',
+  //   label: 'ReFind records',
+  //   icon: <Plus></Plus>,
+  // },
+  // {
+  //   value: 'runScript',
+  //   label: 'Run script',
+  //   icon: <Plus></Plus>,
+  // },
 ];
 
 export function Combobox() {
@@ -65,7 +65,7 @@ export function Combobox() {
         <Command>
           {/* <CommandInput placeholder="Search configGroup..." className="h-9" /> */}
           <CommandEmpty>No configGroup found.</CommandEmpty>
-          <CommandGroup heading="airtable">
+          <CommandGroup heading="">
             {configGroups.map((configGroup) => (
               <CommandItem
                 key={configGroup.value}

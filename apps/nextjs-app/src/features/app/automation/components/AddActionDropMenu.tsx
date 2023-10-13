@@ -18,14 +18,8 @@ const AddActionDropMenu = (props: IAddActionDropMenuProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        {children || (
-          <div className="hover:opacity-60 mt-8 border-2 border-gray-400 cursor-pointer rounded h-16 flex items-center justify-center border-dashed">
-            Add advanced logic or action
-          </div>
-        )}
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-80">
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
+      <DropdownMenuContent className="w-96">
         <DropdownMenuLabel>Advanced Logic</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
@@ -33,10 +27,10 @@ const AddActionDropMenu = (props: IAddActionDropMenuProps) => {
             Conditional logic
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          {/* <DropdownMenuItem>
             Repeating group
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
 
@@ -45,18 +39,18 @@ const AddActionDropMenu = (props: IAddActionDropMenuProps) => {
           <DropdownMenuItem>Send email</DropdownMenuItem>
           <DropdownMenuItem>Create record</DropdownMenuItem>
           <DropdownMenuItem>Update record</DropdownMenuItem>
-          <DropdownMenuItem>Find record</DropdownMenuItem>
-          <DropdownMenuItem disabled>Run script</DropdownMenuItem>
+          {/* <DropdownMenuItem>Find record</DropdownMenuItem>
+          <DropdownMenuItem disabled>Run script</DropdownMenuItem> */}
         </DropdownMenuGroup>
 
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>Integrations</DropdownMenuItem>
           <DropdownMenuItem>
             New Team
             <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
           </DropdownMenuItem>
-        </DropdownMenuGroup>
+        </DropdownMenuGroup> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -78,6 +78,9 @@
     "i18next": "^22.0.0"
   },
   "dependencies": {
+    "@dnd-kit/core": "6.0.8",
+    "@dnd-kit/sortable": "7.0.2",
+    "@uidotdev/usehooks": "2.3.1",
     "cross-env": "7.0.3"
   },
   "devDependencies": {
