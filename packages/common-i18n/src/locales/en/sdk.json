@@ -68,6 +68,8 @@
     "addButton": "Add Subgroup"
   },
   "field": {
+    "fieldName": "Field Name",
+    "fieldType": "Field Type",
     "title": {
       "singleLineText": "Single line text",
       "longText": "Long text",
@@ -137,6 +139,48 @@
       "recordDelete": "Delete record",
       "recordRead": "Read record",
       "recordUpdate": "Update record"
+    }
+  },
+  "import": {
+    "title": {
+      "upload": "Upload",
+      "import": "Import",
+      "localFile": "Local Files",
+      "linkUrl": "Link(URL)",
+      "linkUrlInputTitle": "Add file from URL",
+      "importTitle": "Create a new table",
+      "optionsTitle": "Import option",
+      "leaveTitle": "Are you sure to leave this page?",
+      "selectImportTypeTitle": "Import your file"
+    },
+    "menu": {
+      "addFromOtherSource": "Add from other sources",
+      "excelFile": "Microsoft Excel",
+      "csvFile": "Csv file",
+      "cancel": "Cancel",
+      "leave": "Leave",
+      "next": "Next"
+    },
+    "tips": {
+      "importWayTip": "Click or drag file to this area to upload",
+      "leaveTip": "Your data will still be imported.",
+      "fileExceedSizeTip": "This type file size exceeds the limit of",
+      "analyzing": "analyzing"
+    },
+    "options": {
+      "autoSelectFieldOptionName": "Auto-select field types",
+      "useFirstRowAsHeaderOptionName": "Use first row as header",
+      "importDataOptionName": "Import Data"
+    },
+    "form": {
+      "defaultFieldName": "Field",
+      "error": {
+        "urlEmptyTip": "URL should not be empty!",
+        "urlValidateTip": "Couldn't parse URL. Try a different URL!",
+        "errorFileFormat": "File format is incorrect!",
+        "uniqueFieldName": "Field name should be unique!",
+        "fieldNameEmpty": "Field name should not be empty!"
+      }
     }
   }
 }

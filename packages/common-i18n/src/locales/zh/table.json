@@ -82,9 +82,7 @@
       "autoNumber": "为每条记录自动生成唯一的递增数字。",
       "button": "触发自定义操作。",
       "lookup": "通过绑定一个关联字段，从关联表中查找已关联记录的信息。"
-    },
-    "fieldName": "字段名",
-    "fieldType": "字段类型"
+    }
   },
   "table": {
     "rename": "重命名",
@@ -100,47 +98,10 @@
     "deleteTip1": "其他表中关联了此表的关联字段将会被转换成文本字段",
     "deleteTip2": "该操作无法撤销.",
     "operator": {
-      "createBlank": "创建一个新表格"
-    }
-  },
-  "import": {
-    "title": {
-      "upload": "上传",
-      "import": "导入",
-      "localFile": "本地文件",
-      "linkUrl": "Link(URL)",
-      "linkUrlInputTitle": "从URl下载文件",
-      "importTitle": "创建一个新表格",
-      "optionsTitle": "导入选项",
-      "leaveTitle": "确定离开此页面?"
-    },
-    "menu": {
-      "addFromOtherSource": "从第三方资源导入",
-      "excelFile": "Microsoft Excel",
-      "csvFile": "Csv 文件",
-      "cancel": "取消",
-      "leave": "取消"
-    },
-    "tips": {
-      "importWayTip": "点击或者拖拽到此区域上传",
-      "leaveTip": "你的数据仍然会被导入",
-      "fileExceedSizeTip": "该类型文件限制文件大小为",
-      "analyzing": "分析中"
-    },
-    "options": {
-      "autoSelectFieldOptionName": "自动预测类型",
-      "useFirstRowAsHeaderOptionName": "使用第一行作为行头",
-      "importDataOptionName": "导入数据"
-    },
-    "form": {
-      "defaultFieldName": "字段",
-      "error": {
-        "urlEmptyTip": "URL不能为空！",
-        "urlValidateTip": "不能解析该URL，请重新输入！",
-        "errorFileFormat": "文件格式错误！",
-        "uniqueFieldName": "字段名不能重复！",
-        "fieldNameEmpty": "字段名不能为空"
-      }
+      "createBlank": "创建一个新表格",
+      "importFormCsv": "Csv 文件",
+      "importFormExcel": "Excel 文件",
+      "addFromOtherSource": "从第三方资源导入"
     }
   },
   "grid": {
